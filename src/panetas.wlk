@@ -28,7 +28,7 @@ class Planeta {
 	
 	method avitanteValioso()=personas.map({p=>p.valor()>40})
 
-	method apaciguar(planeta)=personas.avitanteValioso().forEach({p=>p.tributo(planeta)})
+	method apaciguar(planeta)=self.avitanteValioso().forEach({p=>p.tributo(planeta)})
 }
 
 
