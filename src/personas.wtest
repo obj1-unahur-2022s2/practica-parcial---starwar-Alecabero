@@ -1,0 +1,79 @@
+import personas.*
+import panetas.*
+
+describe "test personas"{
+	
+	const julieta=new Personas(edad=42)
+	const ana=new Atletas(edad=25)
+	const rosa=new Atletas (edad=45,tecnicas=8)
+	const perla=new Atletas(edad=28,tecnicas=4,masaMus=6)
+	const monica=new  Docente(edad=45,curso=6)
+	const luisa=new Docente (edad=35,curso=1)
+	
+	
+	test"julieta"{
+		assert.equals(20,julieta.potencia())
+		assert.equals(8,julieta.inteligencia())
+		assert.notThat(julieta.destacable())
+	}
+
+	test"ana"{
+		assert.equals(28,ana.potencia())
+		assert.equals(12,ana.inteligencia())
+		assert.that(ana.destacable())
+		
+	}
+	
+	test "rosa"{
+		assert.equals(52,rosa.potencia())
+		assert.equals(8,rosa.inteligencia())
+		assert.that(rosa.destacable())
+		
+	}
+	
+	test"perla"{
+		assert.equals(44,perla.potencia())
+		assert.equals(12,perla.inteligencia())
+		assert.notThat(perla.destacable())
+		
+	}
+	
+	test"monica"{
+		assert.equals(20,monica.potencia())
+		assert.equals(20,monica.inteligencia())
+		assert.that(monica.destacable())
+	}
+	
+	test"luisa"{
+		assert.equals(20,luisa.potencia())
+		assert.equals(14,luisa.inteligencia())
+		assert.notThat(luisa.destacable())
+		
+	}
+}
+
+describe "planeta"{
+	const julieta=new Personas(edad=42)
+	const ana=new Atletas(edad=25)
+	const rosa=new Atletas (edad=45,tecnicas=8)
+	const perla=new Atletas(edad=28,tecnicas=4,masaMus=6)
+	const monica=new  Docente(edad=45,curso=6)
+	const luisa=new Docente (edad=35,curso=1)
+	const personas=[julieta,ana,rosa,perla,monica,luisa]
+	const triton=new Planeta(personas=personas,museo=0)
+test"delegacion diplo"{
+	assert.equals([ana,rosa,monica],triton.deleDiplo())
+}
+
+test "defensa"{
+	assert.equals(2,triton.defensa())
+}
+test "no es culto"{
+	assert.notThat(triton.esCulto())
+}
+test"potencia Real"{
+	assert.equals(184,triton.potenciaReal())
+}
+}
+
+	
